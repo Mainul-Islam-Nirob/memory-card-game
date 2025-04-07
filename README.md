@@ -2,6 +2,11 @@
 
 A fun and interactive memory game built with **React** using the **Giphy API** to fetch adorable cat GIFs! Flip the cards, avoid repeating, and try to beat your high score. Built with custom React components, hooks, and a clean UI.
 
+## 🔗 Live Demo
+
+👉 [Play the Cat Memory Game Here](https://cat-memory-game-nine.vercel.app/)
+
+
 ![Screenshot](./src/assets/preview.png)
 
 ## 🚀 Features
