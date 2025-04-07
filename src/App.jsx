@@ -16,12 +16,14 @@ import "./App.css";
       const images = await fetchCatImages();
 
       const catNames = [
-        "Mittens", "Whiskers", "Luna", "Simba",
-        "Chloe", "Oreo", "Nala", "Milo",
-        "Bella", "Leo", "Zoe", "Max"
+        "Mittens", "Whiskers", "Luna", "Simba", "Oliver",
+        "Biscuit", "Mochi", "Waffles", "Sushi", "Pepper",
+        "Athena", "Phoenix", "Merlin", "Zelda", "Thor",
+        "Pogo", "Taco", "Noodle", "Pickles", "Gizmo",
+        "Jasper", "Cleo"
       ];
 
-      const namedImages = images.slice(0, 12).map((img, index) => ({
+      const namedImages = images.slice(0, 20).map((img, index) => ({
         ...img,
         title: catNames[index] || "Cute Cat"
       }));
@@ -35,7 +37,7 @@ import "./App.css";
    async function fetchCatImages() {
     const API_KEY = import.meta.env.VITE_GIPHY_API_KEY;
     const res = await fetch(
-      `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=cat&limit=12`
+      `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=cat&limit=20`
     );
     const data = await res.json();
     console.log(data)
