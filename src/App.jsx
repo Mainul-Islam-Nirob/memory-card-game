@@ -1,22 +1,36 @@
-// App.jsx
 import React, {useEffect, useState} from "react";
 import Card from "./components/Card";
 import Scoreboard from "./components/Scoreboard";
+import "./App.css";
 
  function App() {
   const [cards, setCards] = useState([]);
   const [clickedCards, setClickedCards] = useState([]);
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    async function loadImages() {
+      setLoading(true);
+      const images = await fetchCatImages();
 
-    useEffect(() => {
-      async function loadImages() {
-        const images = await fetchCatImages();
-        setCards(shuffle(images));
-      }
-      loadImages();
-    }, []);
+      const catNames = [
+        "Mittens", "Whiskers", "Luna", "Simba",
+        "Chloe", "Oreo", "Nala", "Milo",
+        "Bella", "Leo", "Zoe", "Max"
+      ];
+
+      const namedImages = images.slice(0, 12).map((img, index) => ({
+        ...img,
+        title: catNames[index] || "Cute Cat"
+      }));
+
+      setCards(shuffle(namedImages));
+      setLoading(false);
+    }
+    loadImages();
+  }, []);
   
    async function fetchCatImages() {
     const API_KEY = import.meta.env.VITE_GIPHY_API_KEY;
@@ -24,9 +38,11 @@ import Scoreboard from "./components/Scoreboard";
       `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=cat&limit=12`
     );
     const data = await res.json();
+    console.log(data)
     return data.data.map((img) => ({
       id: img.id,
-      url: img.images.original.url
+      url: img.images.original.url,
+      title: img.slug.replace(/-giphy|-gif/gi, '').replace(/-/g, ' ') || "Cute Cat"
     }));
   }
 
@@ -54,15 +70,21 @@ import Scoreboard from "./components/Scoreboard";
 
 
   return (
-    <div className="p-4 text-center">
-      <h1 className="text-3xl font-bold mb-4">😺 Cat Memory Game</h1>
+    <div className="app-container">
+    <div className="text-center mb-4">
+      <h1 className="text-4xl font-extrabold text-blue-800">😺 Cat Memory Game</h1>
       <Scoreboard score={score} bestScore={bestScore} />
-      <div className="grid grid-cols-4 gap-4 mt-6">
+    </div>
+    {loading ? (
+      <div className="flex justify-center items-center text-xl font-semibold text-gray-700 h-full">Loading Cats...</div>
+    ) : (
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
         {cards.map((card) => (
-          <Card key={card.id} id={card.id} url={card.url} onClick={handleCardClick} />
+          <Card key={card.id} id={card.id} url={card.url} title={card.title} onClick={handleCardClick} />
         ))}
       </div>
-    </div>
+    )}
+  </div>
   );
 }
 
