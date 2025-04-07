@@ -1,10 +1,11 @@
 import React from 'react'
 
-function Card() {
+function Card({id, url}) {
   return (
-    <div>
-      card.....
-    </div>
+    <div
+    className="cursor-pointer border rounded-xl overflow-hidden shadow-lg hover:scale-105 transition">
+    <img src={url} alt="cat" className="w-full h-48 object-cover" />
+  </div>
   )
 }
 
