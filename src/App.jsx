@@ -74,11 +74,14 @@ import "./App.css";
   return (
     <div className="app-container">
     <div className="text-center mb-4">
-      <h1 className="text-4xl font-extrabold text-blue-800">😺 Cat Memory Game</h1>
+      <h1 className="text-4xl font-extrabold text-white mb-2">😺 Cat Memory Game</h1>
       <Scoreboard score={score} bestScore={bestScore} />
     </div>
     {loading ? (
-      <div className="flex justify-center items-center text-xl font-semibold text-gray-700 h-full">Loading Cats...</div>
+      <div className="flex justify-center items-center text-xl font-semibold text-gray-300 h-full">
+      Loading Cats...
+    </div>
+    
     ) : (
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 p-2 sm:gap-4 sm:p-4">
         {cards.map((card) => (

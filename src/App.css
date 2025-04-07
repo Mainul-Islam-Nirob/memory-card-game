@@ -2,7 +2,8 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to bottom, #ebf8ff, #ffffff);
   padding: 1rem;
-}
 
+  /* 🌑 Blackish gradient */
+  background: linear-gradient(to bottom right, #1e1e1e, #2a2a2a);
+}
