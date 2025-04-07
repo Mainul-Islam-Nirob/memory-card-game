@@ -17,13 +17,13 @@ import "./App.css";
 
       const catNames = [
         "Mittens", "Whiskers", "Luna", "Simba", "Oliver",
-        "Biscuit", "Mochi", "Waffles", "Sushi", "Pepper",
+        "Biscuit", "Mochi", "Sushi", "Pepper",
         "Athena", "Phoenix", "Merlin", "Zelda", "Thor",
-        "Pogo", "Taco", "Noodle", "Pickles", "Gizmo",
+        "Pogo", "Taco", "Noodle", "Pickles",
         "Jasper", "Cleo"
       ];
 
-      const namedImages = images.slice(0, 20).map((img, index) => ({
+      const namedImages = images.slice(0, 18).map((img, index) => ({
         ...img,
         title: catNames[index] || "Cute Cat"
       }));
@@ -80,7 +80,7 @@ import "./App.css";
     {loading ? (
       <div className="flex justify-center items-center text-xl font-semibold text-gray-700 h-full">Loading Cats...</div>
     ) : (
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 p-2 sm:gap-4 sm:p-4">
         {cards.map((card) => (
           <Card key={card.id} id={card.id} url={card.url} title={card.title} onClick={handleCardClick} />
         ))}

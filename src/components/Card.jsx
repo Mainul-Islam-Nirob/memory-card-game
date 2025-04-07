@@ -3,15 +3,22 @@ import React from "react";
 export default function Card({ id, url, title, onClick }) {
   return (
     <div
-      className="cursor-pointer rounded-xl overflow-hidden shadow-md hover:shadow-xl transform hover:scale-105 transition bg-white border border-gray-200 h-60 flex flex-col"
       onClick={() => onClick(id)}
+      className="cursor-pointer rounded-lg overflow-hidden shadow hover:shadow-lg transform hover:scale-105 transition bg-white border border-gray-200"
     >
-    <div className="flex-grow relative">
-      <img src={url} alt="cat" className="w-full h-full object-cover" />
+      {/* Image container with fixed height */}
+      <div className="w-full h-32 sm:h-36">
+        <img
+          src={url}
+          alt={title}
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      {/* Title */}
+      <div className="text-sm sm:text-xs font-semibold text-center text-gray-800 bg-white py-1 px-1 border-t border-gray-200 truncate">
+        {title}
+      </div>
     </div>
-    <div className="absolute bottom-0 w-full bg-white/80 text-gray-800 text-sm font-semibold text-center p-1 backdrop-blur-sm border-t border-gray-200">
-      {title}
-    </div>
-  </div>
   );
 }
