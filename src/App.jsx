@@ -5,6 +5,10 @@ import Scoreboard from "./components/Scoreboard";
 
  function App() {
   const [cards, setCards] = useState([]);
+  const [clickedCards, setClickedCards] = useState([]);
+  const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
+
 
     useEffect(() => {
       async function loadImages() {
@@ -35,13 +39,27 @@ import Scoreboard from "./components/Scoreboard";
     return newArray;
   }
   
+  function handleCardClick(id) {
+    if (clickedCards.includes(id)) {
+      setScore(0);
+      setClickedCards([]);
+    } else {
+      const newScore = score + 1;
+      setScore(newScore);
+      setClickedCards([...clickedCards, id]);
+      if (newScore > bestScore) setBestScore(newScore);
+    }
+    setCards(shuffle(cards));
+  }
+
 
   return (
     <div className="p-4 text-center">
       <h1 className="text-3xl font-bold mb-4">😺 Cat Memory Game</h1>
+      <Scoreboard score={score} bestScore={bestScore} />
       <div className="grid grid-cols-4 gap-4 mt-6">
         {cards.map((card) => (
-          <Card key={card.id} id={card.id} url={card.url} />
+          <Card key={card.id} id={card.id} url={card.url} onClick={handleCardClick} />
         ))}
       </div>
     </div>

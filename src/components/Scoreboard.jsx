@@ -1,11 +1,10 @@
-import React from 'react'
+import React from "react";
 
-function Scoreboard() {
+export default function Scoreboard({ score, bestScore }) {
   return (
-    <div>
-      score.......
+    <div className="flex justify-center gap-6 text-lg font-medium">
+      <p>Score: {score}</p>
+      <p>Best Score: {bestScore}</p>
     </div>
-  )
+  );
 }
-
-export default Scoreboard
