@@ -1,12 +1,39 @@
-# React + Vite
+# 🐱 Cat Memory Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fun and interactive memory game built with **React** using the **Giphy API** to fetch adorable cat GIFs! Flip the cards, avoid repeating, and try to beat your high score. Built with custom React components, hooks, and a clean UI.
 
-Currently, two official plugins are available:
+![Screenshot](./src/assets/preview.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🔁 18 unique cat GIF cards, shuffled every turn  
+- ✅ Keeps track of current and best scores  
+- 🎯 Fully responsive and mobile-friendly design  
+- 🖼️ Fetches live data from Giphy API  
+- 🧠 Simple but addictive gameplay  
+- 🌙 Modern dark UI theme  
+- 🌀 Loading indicators while fetching data  
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Technologies Used
+
+- React  
+- Tailwind CSS  
+- Giphy API  
+- JavaScript (ES6+)  
+- Vite  
+
+## 🧠 Game Rules
+
+- Click a card you haven't clicked before.  
+- Every correct click increases your score.  
+- Clicking the same card twice resets your score.  
+- Try to beat your best score!
+
+## 👨‍💻 Author
+
+Developed with ❤️ by  
+[Mainul Islam](https://github.com/Mainul-Islam-Nirob)
+
+## 📄 License
+
+This project is licensed under the MIT License.

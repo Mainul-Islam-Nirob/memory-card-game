@@ -70,7 +70,6 @@ import "./App.css";
     setCards(shuffle(cards));
   }
 
-
   return (
     <div className="app-container">
     <div className="text-center mb-4">
@@ -79,11 +78,11 @@ import "./App.css";
     </div>
     {loading ? (
       <div className="flex justify-center items-center text-xl font-semibold text-gray-300 h-full">
-      Loading Cats...
-    </div>
+         Loading Cats...
+      </div>
     
     ) : (
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 p-2 sm:gap-4 sm:p-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 p-2 sm:gap-4 sm:p-4 mt-2">
         {cards.map((card) => (
           <Card key={card.id} id={card.id} url={card.url} title={card.title} onClick={handleCardClick} />
         ))}
